@@ -1,0 +1,429 @@
+/* Custom Properties (Variables) for Premium Theming */
+:root {
+    --primary-color: #023e8a;    /* Deep Trust Blue */
+    --secondary-color: #f59e0b;  /* Warm Gold */
+    --accent-color: #fb6f92;     /* Playful Pink */
+    --text-main: #334155;
+    --text-light: #64748b;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Base Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* Myanmar & English Font Support */
+body {
+    font-family: 'Poppins', 'Padauk', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Advanced Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+    color: #000000; /* Forces all button text to be black */
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    /* Removed the white text color so it inherits the black color above */
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+    color: #000000; /* Ensures it stays black on hover */
+}
+
+.btn-outline {
+    /* Made the background white so the black text is easy to read over the dark Hero image */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    color: #000000; 
+}
+
+.w-100 { width: 100%; }
+
+/* Sticky & Transparent Header */
+.site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 0;
+    background: transparent;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+/* Class added by JS when scrolling */
+.site-header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+}
+
+.site-header.scrolled .logo,
+.site-header.scrolled .nav-list a {
+    color: var(--primary-color);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.text-accent { color: var(--secondary-color); }
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-list a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-list a:hover { color: var(--secondary-color); }
+
+/* Language Switcher UI */
+.header-actions { display: flex; align-items: center; gap: 20px; }
+
+.lang-switch {
+    display: flex;
+    background: rgba(0,0,0,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.site-header.scrolled .lang-switch { background: var(--bg-light); }
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    padding: 5px 12px;
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.site-header.scrolled .lang-switch button { color: var(--text-main); }
+
+.lang-switch button.active {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.mobile-toggle { display: none; }
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(2,62,138,0.9) 0%, rgba(0,119,182,0.8) 100%), 
+                url('school.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    max-width: 800px;
+    z-index: 2;
+}
+
+.badge {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+
+/* Custom SVG Curve for premium look */
+.custom-shape-divider-bottom {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.custom-shape-divider-bottom .shape-fill { fill: var(--white); }
+
+/* Layout Grids */
+.section { padding: 100px 0; }
+.bg-light { background-color: var(--bg-light); }
+.text-center { text-align: center; }
+.section-header { margin-bottom: 60px; }
+.section-header h2 { font-size: 2.5rem; color: var(--primary-color); }
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* Premium Feature Cards */
+.feature-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.feature-card:hover { transform: translateY(-10px); }
+
+.card-icon {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 20px;
+}
+
+.age-badge {
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+/* Premium Contact Form */
+.form-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(2, 62, 138, 0.1);
+}
+
+.info-list { list-style: none; margin-top: 30px; }
+.info-list li {
+    display: flex; align-items: center; gap: 15px;
+    margin-bottom: 15px; font-size: 1.1rem;
+}
+.info-list i { color: var(--secondary-color); font-size: 1.2rem; width: 25px;}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+    .nav-list { display: none; } /* Add JS mobile menu logic here in production */
+    .mobile-toggle {
+        display: block; background: none; border: none;
+        color: var(--white); font-size: 1.5rem; cursor: pointer;
+    }
+    .site-header.scrolled .mobile-toggle { color: var(--primary-color); }
+}
+
+/* Replaced .grid-3 with a more flexible programs-grid */
+.programs-grid {
+    display: grid;
+    /* minmax(250px) ensures 4 cards fit on large screens, and auto-wraps to 2x2 on tablets */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* =========================================
+   FULLY RESPONSIVE DESIGN (Mobile & Tablet)
+   ========================================= */
+
+/* Tablet & Small Desktops (Max width: 992px) */
+@media (max-width: 992px) {
+    .grid-2 { 
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+    }
+    
+    .hero h1 { font-size: 3rem; }
+    .section { padding: 80px 0; }
+
+    /* Premium Mobile Navigation (Hidden Off-Screen) */
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Hides the menu off the left side */
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+    }
+
+    /* Class added by JavaScript to slide menu in */
+    .nav-list.active {
+        left: 0; 
+    }
+
+    /* Change link color for white background menu */
+    .nav-list a {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+
+    .mobile-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: var(--transition);
+        z-index: 1001; /* Keep above the menu */
+    }
+
+    .site-header.scrolled .mobile-toggle {
+        color: var(--primary-color);
+    }
+}
+
+/* Mobile Phones (Max width: 768px) */
+@media (max-width: 768px) {
+    .hero { 
+        padding-top: 120px; 
+    }
+    
+    .hero h1 { 
+        font-size: 2.2rem; 
+        margin-bottom: 15px;
+    }
+    
+    .hero p { 
+        font-size: 1rem; 
+        margin-bottom: 30px;
+    }
+
+    /* Stack hero buttons vertically on small screens */
+    .hero-buttons { 
+        flex-direction: column; 
+        gap: 15px; 
+        width: 100%; 
+    }
+    
+    .hero-buttons .btn { 
+        width: 100%; 
+    }
+
+    .section-header h2 { font-size: 2rem; }
+    .section-header p { font-size: 0.95rem; }
+
+    /* Hide the 'Enroll Now' button in the header to save space on phones */
+    .header-actions > .btn {
+        display: none;
+    }
+    
+    .header-actions { gap: 15px; }
+
+    .feature-card { padding: 30px 20px; }
+    .form-card { padding: 30px 20px; }
+}
+
+/* Very Small Phones (Max width: 480px) */
+@media (max-width: 480px) {
+    .programs-grid {
+        grid-template-columns: 1fr; /* Forces exactly 1 column */
+    }
+    .logo { font-size: 1.2rem; }
+}
